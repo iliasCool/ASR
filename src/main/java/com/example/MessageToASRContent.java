@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author andreadisst
+ *  This is being used in order to read the Json message from hub and extract audio URL and timestamp
  */
 public class MessageToASRContent {
     
