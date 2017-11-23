@@ -1,5 +1,6 @@
 FROM openjdk:8
 	
+COPY resources/acoustic models .
 
 COPY target/asr.jar .
 	
