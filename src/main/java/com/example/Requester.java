@@ -23,8 +23,8 @@ public class Requester{
         try{
         	
             //1. creating a socket to connect to the server
-           // requestSocket = new Socket("160.40.49.114", 2031); //this pc
-           requestSocket = new Socket("192.168.200.129", 2087); //vm ubuntu
+            requestSocket = new Socket("160.40.49.114", 2087); //this pc
+        //   requestSocket = new Socket("192.168.200.129", 2087); //vm ubuntu
 
             //System.out.println("Connected to localhost in port 2004");
             //2. get Input and Output streams
