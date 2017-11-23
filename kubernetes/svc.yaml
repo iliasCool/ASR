@@ -11,4 +11,4 @@ spec:
   - name: http
     port: 7766
     protocol: TCP
-    targetPort: 2022
+    targetPort: 2087
