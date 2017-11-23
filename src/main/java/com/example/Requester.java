@@ -1,7 +1,10 @@
-package com.example;
+package com.example.asr;
+
 
 import java.io.*;
 import java.net.*;
+
+import com.google.gson.Gson;
 
 //import com.google.gson.Gson;
 //import com.google.gson.GsonBuilder;
@@ -20,8 +23,8 @@ public class Requester{
         try{
         	
             //1. creating a socket to connect to the server
-            //requestSocket = new Socket("160.40.49.114", 2004);sendMessage //this pc
-            requestSocket = new Socket("192.168.200.129", 2021); //vm ubuntu
+           // requestSocket = new Socket("160.40.49.114", 2031); //this pc
+           requestSocket = new Socket("192.168.200.129", 2087); //vm ubuntu
 
             //System.out.println("Connected to localhost in port 2004");
             //2. get Input and Output streams
@@ -37,13 +40,25 @@ public class Requester{
                     boolean terminate=true;  //this is becoming true when file processing is over
                     if (message.equals("Connection successful")) {  // start file processing
                         //1. create json message directly
-                        String jsonInString = "{\"URL\": \"test.wav\"}";
-                        // //2. create json message with constructor                    
-                           // MessageFields messageFields = new MessageFields();
+                        //String jsonInString = "{\"URL\": \"test.wav\"}";
+                        //String jsonInString = "{ \"URL\": \"test.wav\", \"timestamp\": \"1508414400\"  }";
+                        
+                    	
+                    	// //2. create json message with constructor                    
+                           //a.old meassage
+                    	   // MessageFields messageFields = new MessageFields();
                            // messageFields.setURL("test.wav");
            	               // Gson gson = new Gson();
                            // String jsonInString = gson.toJson(messageFields);
-               	        sendMessage(jsonInString);
+               	          //b. new message
+                    	String url="http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=test.wav";
+        				String audio_timestamp="2017-01-01T12:00:00Z";
+                    	MessageToASR msg = new MessageToASR(url,audio_timestamp);
+        				Gson gson = new Gson();
+        				String jsonInString = gson.toJson(msg);
+                        System.out.println(jsonInString);
+                    	                    	
+                    	sendMessage(jsonInString);
                     	terminate=false;
                        }       
                                      
