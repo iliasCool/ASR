@@ -1,4 +1,5 @@
-package com.example;
+package com.example.asr;
+
 
 import java.io.FileInputStream;
 import java.io.File;
@@ -50,8 +51,8 @@ public static String transcribe(String fileURL) throws IOException {
         StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
     	InputStream stream = new FileInputStream(new File("new_audio.wav"));
 
+  	//   InputStream stream = new FileInputStream(new File("msg4.wav"));
     	
-
 
     	recognizer.startRecognition(stream);
         SpeechResult result;
