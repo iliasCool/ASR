@@ -1,4 +1,5 @@
-package com.example;
+package com.example.asr;
+
 
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class Provider{
     {
         try{
             //1. creating a server socket
-            providerSocket = new ServerSocket(2076, 10);
+            providerSocket = new ServerSocket(2087, 10);
             //2. Wait for connection
             System.out.println("Waiting for connection");
             connection = providerSocket.accept();
