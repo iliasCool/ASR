@@ -4,7 +4,10 @@ node ('beaware-jenkins-slave') {
         sh 'git submodule init'
         sh 'git submodule update'
     }
-
+	
+    stage ('Compile (Maven)') {
+        sh 'mvn clean package'
+    }
     stage ('Build docker image') {
 	    sh 'docker build -t beaware/asr:${BUILD_NUMBER} --pull=true .'
     }
