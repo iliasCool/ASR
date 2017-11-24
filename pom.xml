@@ -76,7 +76,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>asr.jar</finalName>
+    <finalName>asr</finalName>
         <plugins>
 
             <!-- download source code in Eclipse, best practice -->
