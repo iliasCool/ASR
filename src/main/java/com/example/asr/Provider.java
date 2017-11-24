@@ -61,12 +61,9 @@ public class Provider{
                                        
                     	sendMessage("Msg from Hub received. File is being processed..");
                     	String transcription;
-//                    	try {                  	
-//               	     		transcription =   Transcriber.transcribe(url);
-//                    	}
-//                   	catch (StreamCorruptedException corrupt) {
-                   	     	transcription = "This is a test transcription";              		
-//                    	}
+        	
+          	     		transcription =   Transcriber.transcribe(url);
+
                	     	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp); 
                	     	System.out.println(transcription);
                	     	System.out.println(transcription_id);
