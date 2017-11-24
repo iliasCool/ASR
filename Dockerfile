@@ -6,5 +6,6 @@ COPY target/asr-jar-with-dependencies.jar .
 	
 WORKDIR .
 
+
 CMD ["java", "-jar", "asr.jar"]
 
