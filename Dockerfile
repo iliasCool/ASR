@@ -2,7 +2,7 @@ FROM openjdk:8
 	
 COPY resources/acoustic_models .
 
-COPY target/ASR.jar .
+COPY target/ASR-jar-with-dependencies.jar .
 	
 WORKDIR .
 
