@@ -43,9 +43,9 @@ public static String transcribe(String fileURL) throws IOException {
         //configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
         //configuration.setLanguageModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
        
-        configuration.setAcousticModelPath("file:acoustic models/English/en-us");
-        configuration.setDictionaryPath("file:acoustic models/English/cmudict-en-us.dict");
-        configuration.setLanguageModelPath("file:acoustic models/English/en-us.lm.bin");
+        configuration.setAcousticModelPath("file:acoustic_models/English/en-us");
+        configuration.setDictionaryPath("file:acoustic_models/English/cmudict-en-us.dict");
+        configuration.setLanguageModelPath("file:acoustic_models/English/en-us.lm.bin");
         
         
         StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
