@@ -39,13 +39,13 @@ public static String transcribe(String fileURL) throws IOException {
 	// 2. Load ASR configuration 
 	Configuration configuration = new Configuration();
 	//English
-		//configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-        //configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-        //configuration.setLanguageModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
+	configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
+        configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
+        configuration.setLanguageModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
        
-        configuration.setAcousticModelPath("file:acoustic_models/English/en-us");
-        configuration.setDictionaryPath("file:acoustic_models/English/cmudict-en-us.dict");
-        configuration.setLanguageModelPath("file:acoustic_models/English/en-us.lm.bin");
+       // configuration.setAcousticModelPath("file:acoustic_models/English/en-us");
+       // configuration.setDictionaryPath("file:acoustic_models/English/cmudict-en-us.dict");
+       // configuration.setLanguageModelPath("file:acoustic_models/English/en-us.lm.bin");
         
         
         StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
