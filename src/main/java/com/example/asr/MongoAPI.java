@@ -42,7 +42,7 @@ public class MongoAPI {
 	
 	 }
 	 
-    public static String mongoWrite(String transcription_text, String audio_timestamp) throws UnknownHostException, NoSuchAlgorithmException, KeyManagementException{
+    public static String mongoWrite(String transcription_text, String audio_timestamp, String language, String incidentID) throws UnknownHostException, NoSuchAlgorithmException, KeyManagementException{
 
     	System.out.println(MONGO_URI); 
     	MongoClientURI mongoClientURI = new MongoClientURI(MONGO_URI);
