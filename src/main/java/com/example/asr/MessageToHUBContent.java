@@ -12,17 +12,17 @@ public class MessageToHUBContent {
     
     String timestamp;
     String language;
-    String transcrpition_id;
+    String IDRef;
     
     public MessageToHUBContent(){
         
     }
     
-    public MessageToHUBContent(String timestamp, String language, String transcrpition_id){
+    public MessageToHUBContent(String timestamp, String language, String IDRef){
         
         this.timestamp = timestamp;
         this.language = language;
-        this.transcrpition_id = transcrpition_id;
+        this.IDRef = IDRef;
     }
     
 }
