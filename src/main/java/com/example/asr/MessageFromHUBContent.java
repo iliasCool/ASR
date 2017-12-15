@@ -7,18 +7,18 @@ import java.util.List;
  *
  * @author andreadisst
  */
-public class MessageToASRContent {
+public class MessageFromHUBContent {
     
     String URL;
     String timestamp;
     String language;
     String incidentID;
     
-    public MessageToASRContent(){
+    public MessageFromHUBContent(){
         
     }
     
-    public MessageToASRContent(String URL, String timestamp, String language, String incidentID){
+    public MessageFromHUBContent(String URL, String timestamp, String language, String incidentID){
         this.URL = URL;
         this.timestamp = timestamp;
         this.language = language;
