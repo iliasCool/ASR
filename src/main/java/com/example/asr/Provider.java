@@ -43,7 +43,7 @@ public class Provider{
                     if (message.equals("bye")) {
                         sendMessage("bye"); //  sendMessage("bye");
                     }else {                   
-                        Gson gson = new Gson();    	
+                        Gson gson_in = new Gson();    	
                         //String jsonStr = "{\"a\": \"A\"}";
                         //MessageFields messagefields =gson.fromJson(message, MessageFields.class);
                        	//String url = messagefields.getURL();
@@ -51,7 +51,7 @@ public class Provider{
                     	//String audio_timestamp = messagefields.gettimestamp();
                     	//System.out.println(audio_timestamp);
 //                      Gson gson2 = new Gson(); 
-                        MessageFromHUB msg_in =gson.fromJson(message, MessageFromHUB.class);
+                        MessageFromHUB msg_in =gson_in.fromJson(message, MessageFromHUB.class);
                         String url=msg_in.message.URL;
                         String audio_timestamp=msg_in.message.timestamp;
                         String language=msg_in.message.language;
@@ -78,8 +78,8 @@ public class Provider{
                	     	//		"\"}";
                	     	// //b. create json with constructor
                         MessageToHUB msg_out = new MessageToHUB(timestamp,language, transcrpition_id);
-        				Gson gson = new Gson();
-        				String jsonStrOut = gson.toJson(msg_out);
+        				Gson gson_out = new Gson();
+        				String jsonStrOut = gson_out.toJson(msg_out);
                         
                         
                	     	System.out.println(jsonStrOut);
