@@ -7,22 +7,22 @@ import java.util.List;
  *
  * @author andreadisst
  */
-public class MessageFromHUBContent {
+public class MessageToHUBContent {
     
-    String URL;
+    
     String timestamp;
     String language;
-    String incidentID;
+    String transcrpition_id;
     
-    public MessageFromHUBContent(){
+    public MessageToHUBContent(){
         
     }
     
-    public MessageFromHUBContent(String URL, String timestamp, String language, String incidentID){
-        this.URL = URL;
+    public MessageToHUBContent(String timestamp, String language, String transcrpition_id){
+        
         this.timestamp = timestamp;
         this.language = language;
-        this.incidentID = incidentID;
+        this.transcrpition_id = transcrpition_id;
     }
     
 }
