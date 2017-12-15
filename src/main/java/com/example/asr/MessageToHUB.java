@@ -5,16 +5,16 @@ package com.example.asr;
 *
 * @author andreadisst
 */
-public class MessageFromHUB {
+public class MessageToHUB {
    
-   MessageFromHUBContent message;
+   MessageToHUBContent message;
    
-   public MessageFromHUB(){
+   public MessageToHUB(){
        
    }
    
-   public MessageFromHUB(String URL, String timestamp, String language, String incidentID){
-       this.message = new MessageFromHUBContent(URL, timestamp,language,incidentID);
+   public MessageToHUB(String timestamp, String language, String transcrpition_id){
+       this.message = new MessageToHUBContent(URL, timestamp,language,incidentID);
    }
    
 }
