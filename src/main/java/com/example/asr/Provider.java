@@ -51,11 +51,11 @@ public class Provider{
                     	//String audio_timestamp = messagefields.gettimestamp();
                     	//System.out.println(audio_timestamp);
 //                      Gson gson2 = new Gson(); 
-                        MessageToASR msg =gson.fromJson(message, MessageToASR.class);
-                        String url=msg.message.URL;
-                        String audio_timestamp=msg.message.timestamp;
-                        String language=msg.message.language;
-                        String incidentID=msg.message.incidentID;
+                        MessageFromHUB msg_in =gson.fromJson(message, MessageFromHUB.class);
+                        String url=msg_in.message.URL;
+                        String audio_timestamp=msg_in.message.timestamp;
+                        String language=msg_in.message.language;
+                        String incidentID=msg_in.message.incidentID;
                         System.out.println(url);
                         System.out.println(audio_timestamp);
                         
@@ -70,11 +70,18 @@ public class Provider{
                         String transcription_id="507f191e810c19729de860bb";
                	     	System.out.println(transcription);
                	     	System.out.println(transcription_id);
-               	     	//String jsonStrOut = "{\"IDRef\": \"507f191e810c19729de860ea\"}";
-               	     	String jsonStrOut = "{\"IDRef\": \""
-               	     			+ transcription_id+
-               	     			"\"}";
                	     	
+                        // //a.create json directly
+                        // //String jsonStrOut = "{\"IDRef\": \"507f191e810c19729de860ea\"}";
+               	     	//String jsonStrOut = "{\"IDRef\": \""
+               	     	//		+ transcription_id+
+               	     	//		"\"}";
+               	     	// //b. create json with constructor
+                        MessageToHUB msg_out = new MessageToHUB(timestamp,language, transcrpition_id);
+        				Gson gson = new Gson();
+        				String jsonStrOut = gson.toJson(msg_out);
+                        
+                        
                	     	System.out.println(jsonStrOut);
                	     	sendMessage(jsonStrOut);
                    }
