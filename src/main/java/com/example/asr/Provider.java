@@ -54,8 +54,10 @@ public class Provider{
                         MessageToASR msg =gson.fromJson(message, MessageToASR.class);
                         String url=msg.message.URL;
                         String audio_timestamp=msg.message.timestamp;
+                        String language=msg.message.language;
+                        String incidentID=msg.message.incidentID;
                         System.out.println(url);
-                       System.out.println(audio_timestamp);
+                        System.out.println(audio_timestamp);
                         
                         
                                        
@@ -64,7 +66,7 @@ public class Provider{
         	
           	     		transcription =   Transcriber.transcribe(url);
 
-               	     	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp); 
+               	     	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp,language,incidentID); 
                	     	System.out.println(transcription);
                	     	System.out.println(transcription_id);
                	     	//String jsonStrOut = "{\"IDRef\": \"507f191e810c19729de860ea\"}";
