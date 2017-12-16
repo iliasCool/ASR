@@ -13,7 +13,8 @@ public class Test {
 		String audio_timestamp="2018-01-01T12:00:00Z";
 		String transcription;
    		transcription =   Transcriber.transcribe(url);
-    	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp); 
+		String transcription_id="test" ;
+    //	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp); 
     	System.out.println(transcription_id);
     	System.out.println(transcription);
 
