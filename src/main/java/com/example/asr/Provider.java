@@ -77,7 +77,7 @@ public class Provider{
                	     	//		+ transcription_id+
                	     	//		"\"}";
                	     	// //b. create json with constructor
-                        MessageToHUB msg_out = new MessageToHUB(audio_timestamp,language,transcrpition_id);
+                        MessageToHUB msg_out = new MessageToHUB(audio_timestamp,language,transcription_id);
         				Gson gson_out = new Gson();
         				String jsonStrOut = gson_out.toJson(msg_out);
                         
