@@ -9,20 +9,17 @@ import java.util.List;
  */
 public class MessageToHUBContent {
     
-    
-    String timestamp;
-    String language;
     String IDRef;
+    String language;
     
     public MessageToHUBContent(){
         
     }
     
-    public MessageToHUBContent(String timestamp, String language, String IDRef){
-        
-        this.timestamp = timestamp;
-        this.language = language;
+    public MessageToHUBContent(String IDRef, String language){
+       
         this.IDRef = IDRef;
+        this.language = language;
     }
     
 }
