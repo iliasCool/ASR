@@ -13,8 +13,8 @@ public class MessageToHUB {
        
    }
    
-   public MessageToHUB(String timestamp, String language, String IDRef){
-       this.message = new MessageToHUBContent(timestamp,language,IDRef);
+   public MessageToHUB(String IDRef, String language){
+       this.message = new MessageToHUBContent(IDRef,language);
    }
    
 }
