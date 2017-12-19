@@ -138,7 +138,20 @@ public class MongoAPI {
 		   post = cursor.next();
 		   System.out.println(post);	
 	   }        
-	
+
+	String key1= "IDRef"; 
+       String key2= "language";
+       String key3= "incidentID";
+       String value1=id;
+       String value2=language;
+       String value3=incidentID;
+	    
+       transcriptions_col.remove(doc);
+       doc.put(key1, value1);
+       doc.put(key2, value2);
+       doc.put(key3, value3);
+       transcriptions_col.insert(doc);
+	    
        String id = post.get("_id").toString();  //post contains the last object of the collection since the cursor stopped at the last entry
        System.out.println(id);   //na kanw return to id
            return id;
