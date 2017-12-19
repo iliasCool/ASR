@@ -66,8 +66,8 @@ public class Provider{
         	
           	     		transcription =   Transcriber.transcribe(url);
 
-               	     	//String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp,language,incidentID); 
-                        String transcription_id="507f191e810c19729de860bb";
+               	     	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp,language,incidentID); 
+                        //String transcription_id="507f191e810c19729de860bb";
                	     	System.out.println(transcription);
                	     	System.out.println(transcription_id);
                	     	
