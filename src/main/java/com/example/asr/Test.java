@@ -12,11 +12,14 @@ public class Test {
 		String url="http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=test.wav";
 		String audio_timestamp="2018-01-01T12:00:00Z";
 		String transcription;
-   		transcription =   Transcriber.transcribe(url);
-		String transcription_id="test" ;
-    //	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp); 
+   		String language="el-GR";
+		transcription =   Transcriber.transcribe(url,language);
+		//String transcription_id="test" ;
+   		String incidentID="542845";
+     	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp,language,incidentID); 
     	System.out.println(transcription_id);
     	System.out.println(transcription);
 
 	}
 }
+
