@@ -64,7 +64,7 @@ public class Provider{
                     	sendMessage("Msg from Hub received. File is being processed..");
                     	String transcription;
         	
-          	     		transcription =   Transcriber.transcribe(url);
+          	     		transcription =   Transcriber.transcribe(url,language);
 
                	     	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp,language,incidentID); 
                         //String transcription_id="507f191e810c19729de860bb";
