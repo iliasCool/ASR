@@ -115,7 +115,7 @@
                             <!-- MainClass in mainfest make a executable jar -->
                             <archive>
                               <manifest>
-                                    <mainClass>com.example.asr.Provider</mainClass>
+                                    <mainClass>com.example.asr.Test</mainClass>
                               </manifest>
                             </archive>
 
