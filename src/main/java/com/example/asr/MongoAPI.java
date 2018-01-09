@@ -44,8 +44,7 @@ public class MongoAPI {
 	 
     public static String mongoWrite(String transcription_text, String audio_timestamp, String language, String incidentID) throws UnknownHostException, NoSuchAlgorithmException, KeyManagementException{
 
-    	System.out.println(MONGO_URI); 
-    	MongoClientURI mongoClientURI = new MongoClientURI(MONGO_URI);
+	    MongoClientURI mongoClientURI = new MongoClientURI(MONGO_URI);
        
         TrustManager[] trustManagers=new TrustManager[] {
             new X509TrustManager() {
@@ -69,93 +68,52 @@ public class MongoAPI {
                                         new ServerAddress(mongoClientURI.getHosts().get(1))), Arrays.asList(mongoClientURI.getCredentials()), options);
         
         DB db = mongoClient.getDB("BeAware");
-       // MongoIterable<String> db_names = mongoClient.listDatabaseNames();     // Get all database names
-       //List<String> db_names1 = mongoClient.getDatabaseNames();
-       //System.out.println(db_names1);
-       // String str_names = db_names.toString();
-       // System.out.println(str_names);
-         
-       // Collection<String> colnames= db.getCollectionNames();
-       // System.out.println(colnames);
-        
-        
-        //DBCollection coll = db.getCollection("EnglishFloods");
-        //long num_col=coll.count();
-        //System.out.println(num_col);
-        //List<DBObject> ind = coll.getIndexInfo();
-        //System.out.println(ind);
-        //DBCursor ind_col = coll.find();
-        //System.out.println(ind_col);
-
-        //DBCursor cursor = coll.find();
-        //System.out.println(cursor);
-        //cursor.hasNext();
-        //DBObject post = cursor.next();
-        //String id = post.get("id_str").toString();
-        //System.out.println(post);
-        //String id = rintln(id);
-
-        //Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        //System.out.println(timestamp);
-        
-        
-        
-    ////////////////////////////////////////////////////////    
-         //DBCollection transcriptions_col = db.createCollection("Transcriptions", null);  // creates the collection
-   /////////////////////////////////////////////////////////
+       
         
       
-        
+  //---------------------Write transcription and timestamp to mongo------------      
        DBCollection transcriptions_col = db.getCollection("Transcriptions");
-       	//    transcriptions_col.drop();   //deletes the collection
+       //    transcriptions_col.drop();   //deletes the collection
   
-       
-      //String transcription_text= "This is a test transcription";
-      //String  audio_timestamp="16173821234235";
        BasicDBObject doc = new BasicDBObject("text", transcription_text).append("timestamp", audio_timestamp);  
        //          .append("count", 1)
        //       .append("info", new BasicDBObject("x", 203).append("y", 102));
 	  transcriptions_col.insert(doc);
-      //ObjectId id1 = doc.getObjectId(URI);
-      //ObjectId id2 = doc.getObjectId(audio_timestamp);
-      //ObjectId id3 = doc.getObjectId(transcription_text);
-	  // System.out.println(id1);
-	  // System.out.println(id2);
-	  // System.out.println(id3);
-      
-       //System.out.post.get("id_str").toString();
-	   //   db.products.insert( { item: "card", qty: 15 } )
+	  ObjectId ID = (ObjectId)doc.get( "_id" );
+	  String id=ID.toString();
+	  System.out.println(id);
+	 
+	  //----------------update field by including reference id as a string-----
+	  String key1= "IDRef"; 
+      String key2= "language";
+      String key3= "incidentID";
+      String value1=id;
+      String value2=language;
+      String value3=incidentID;
+    
+      transcriptions_col.remove(doc);
+      doc.put(key1, value1);
+      doc.put(key2, value2);
+      doc.put(key3, value3);
+      transcriptions_col.insert(doc);
+      //------------------------------------------------------------------------
+	  
 	   
-    		  
-    		  long num=transcriptions_col.count();
-	   System.out.println(num);
-	   DBCursor cursor = transcriptions_col.find();
-	   //System.out.println(cursor);
+     //---------------Print all column records--------------------------------		  
+      long num=transcriptions_col.count();
+	  //System.out.println(num);
+	  DBCursor cursor = transcriptions_col.find();
+	  DBObject post = cursor.next();//Initialization
+	  System.out.println(post);
+	  for (int i=2; i<=num; i++) {
+		  post = cursor.next();
+		  System.out.println(post);	
+	  }        
 
-  	 DBObject post = cursor.next();//Initialization
-	 System.out.println(post);
-	   for (int i=2; i<=num; i++) {
-		   post = cursor.next();
-		   System.out.println(post);	
-	   }        
-
-	String id = post.get("_id").toString();  //post contains the last object of the collection since the cursor stopped at the last entry
-       System.out.println(id);   //na kanw return to id       String key1= "IDRef"; 
-       String key1= "IDRef"; 
-       String key2= "language";
-       String key3= "incidentID";
-       String value1=id;
-       String value2=language;
-       String value3=incidentID;
-	    
-       transcriptions_col.remove(doc);
-       doc.put(key1, value1);
-       doc.put(key2, value2);
-       doc.put(key3, value3);
-       transcriptions_col.insert(doc);
-	    
-       
-           return id;
+	  
+	  
+	  return id;
     }
     
 }
+
