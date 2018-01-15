@@ -60,11 +60,15 @@ public static String transcribe(String fileURL, String language) throws IOExcept
     		//configuration.setLanguageModelPath("file:acoustic_models/Italian/voxforge_it_sphinx/etc/voxforge_it.lm.dmp");
         break;
     case "es"://Spanish 16kHz model
-    	configuration.setAcousticModelPath("file:acoustic_models/Spanish/cmu_spanish/cmusphinx-es-5.2/model_parameters/voxforge_es_sphinx.cd_ptm_4000");
-    	configuration.setDictionaryPath("file:acoustic_models/Spanish/cmu_spanish/es.dict");
-    	//configuration.setDictionaryPath("file:acoustic_models/Spanish/cmu_spanish/cmusphinx-es-5.2/etc/voxforge_es_sphinx");//words missing from the dictionary
-    	configuration.setLanguageModelPath("file:acoustic_models/Spanish/cmu_spanish/es-20k.lm");
+    	// //configuration.setAcousticModelPath("file:acoustic_models/Spanish/cmu_spanish/cmusphinx-es-5.2/model_parameters/voxforge_es_sphinx.cd_ptm_4000");
+    	//configuration.setDictionaryPath("file:acoustic_models/Spanish/cmu_spanish/es.dict");
+    	// //configuration.setDictionaryPath("file:acoustic_models/Spanish/cmu_spanish/cmusphinx-es-5.2/etc/voxforge_es_sphinx");//words missing from the dictionary
+    	// configuration.setLanguageModelPath("file:acoustic_models/Spanish/cmu_spanish/es-20k.lm");
         // //alternativelly 
+    	configuration.setAcousticModelPath("file:acoustic_models/Spanish/spanish 2/voxforge-es-0.2/model_parameters/voxforge_es_sphinx.cd_ptm_3000");
+    	configuration.setDictionaryPath("file:acoustic_models/Spanish/spanish 2/voxforge-es-0.2/etc/voxforge_es_sphinx.dic");
+    	configuration.setLanguageModelPath("file:acoustic_models/Spanish/spanish 2/voxforge-es-0.2/etc/voxforge_es_sphinx.transcription.test.lm");
+
         break;
     case "el-GR"://Greek 
         configuration.setAcousticModelPath("file:acoustic_models/Greek/cmusphinx-el-gr-5.2/el-gr.cd_cont_5000");
