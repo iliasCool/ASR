@@ -1,13 +1,12 @@
 FROM openjdk:8
 
-COPY target/asr.jar .
+COPY target/asr.jar /home
 
-COPY resources/acoustic_models/ acoustic_models
+COPY resources/acoustic_models/ /home/acoustic_models
 
-RUN wget -O acoustic_models/Spanish/cmu_spanish/es-20k.lm  http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=es-20k.lm
+WORKDIR  /home/acoustic_models/Spanish/cmu_spanish/
+RUN wget -O es-20k.lm  http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=es-20k.lm
 
-WORKDIR .
-
+WORKDIR /home
 
 CMD ["java", "-jar", "asr.jar"]
-
