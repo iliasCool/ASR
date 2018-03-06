@@ -8,12 +8,12 @@ public class Test {
 
 	public static void main(String[] args) throws IOException, KeyManagementException, NoSuchAlgorithmException {
 		// TODO Auto-generated method stub
-		String lang_id="en";   //Define language
+		String lang_id="es";   //Define language
 
 		
 		
-		String language="es";
-		String url="http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=spanish2.wav"; //english msg6
+		String language="en-US";
+		String url="http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=test.wav"; //english msg6
 		switch (lang_id) {
 		case "en":
 			language="en-US";
