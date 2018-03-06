@@ -12,8 +12,8 @@ public class Test {
 
 		
 		
-		String language="en-US";
-		String url="http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=test.wav"; //english msg6
+		String language="es";
+		String url="http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=spanish2.wav"; //english msg6
 		switch (lang_id) {
 		case "en":
 			language="en-US";
