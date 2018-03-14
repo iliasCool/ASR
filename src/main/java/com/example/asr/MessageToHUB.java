@@ -13,8 +13,8 @@ public class MessageToHUB {
        
    }
    
-   public MessageToHUB(String IDRef, String language){
-       this.message = new MessageToHUBContent(IDRef,language);
+   public MessageToHUB(String transcription, String language){
+       this.message = new MessageToHUBContent(transcription,language);
    }
    
 }
