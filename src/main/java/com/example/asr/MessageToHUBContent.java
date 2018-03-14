@@ -9,16 +9,16 @@ import java.util.List;
  */
 public class MessageToHUBContent {
     
-    String IDRef;
+    String transcription;
     String language;
     
     public MessageToHUBContent(){
         
     }
     
-    public MessageToHUBContent(String IDRef, String language){
+    public MessageToHUBContent(String transcription, String language){
        
-        this.IDRef = IDRef;
+        this.transcription = transcription;
         this.language = language;
     }
     
