@@ -65,19 +65,19 @@ public class Provider{
                     	String transcription;
         	
           	     		transcription =   Transcriber.transcribe(url,language);
-
-               	     	String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp,language,incidentID); 
-                        //String transcription_id="507f191e810c19729de860bb";
-               	     	System.out.println(transcription);
-               	     	System.out.println(transcription_id);
-               	     	
+                        // //In case we write the result to MongoDB:
+               	     	//String transcription_id=MongoAPI.mongoWrite(transcription,audio_timestamp,language,incidentID); 
                         // //a.create json directly
                         // //String jsonStrOut = "{\"IDRef\": \"507f191e810c19729de860ea\"}";
                	     	//String jsonStrOut = "{\"IDRef\": \""
                	     	//		+ transcription_id+
                	     	//		"\"}";
                	     	// //b. create json with constructor
-                        MessageToHUB msg_out = new MessageToHUB(transcription_id,language);
+                        //MessageToHUB msg_out = new MessageToHUB(transcription_id,language);
+                        
+                        // //In case we write directly the result to the topic, without using mongoDB:
+                        MessageToHUB msg_out = new MessageToHUB(transcription,language);
+
         				Gson gson_out = new Gson();
         				String jsonStrOut = gson_out.toJson(msg_out);
                         
