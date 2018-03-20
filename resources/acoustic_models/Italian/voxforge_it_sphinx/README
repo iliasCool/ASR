@@ -1,0 +1,23 @@
+To run it
+
+1. Build sphinxtrain
+2. Run ../SphinxTrain/scripts.pl/setup_SphinxTrain -update -task voxforge_it
+3. Run ./scripts.pl/make_feats.pl -ctl etc/voxforge_it_train.fileids
+4. Run ./scripts.pl/RunAll.pl
+5. Get the model
+
+To update it with new prompts:
+
+1. Update wav files
+2. Update transcription
+3. Update fileids and dictionary
+4. Run make_feats
+5. Run RunAll.pl as above
+
+
+To decode sound with model:
+
+1. Put sound it wav
+2. Update test.fileids
+3. Run ./scripts.pl/make_feats.pl -ctl etc/voxforge_it_test.fileids
+4. Run ./scripts_pl/decode/slave.pl
