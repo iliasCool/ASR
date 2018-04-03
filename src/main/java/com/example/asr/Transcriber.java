@@ -100,6 +100,13 @@ public static String transcribe(String fileURL, String language) throws IOExcept
     	recognizer.startRecognition(stream);
         SpeechResult result;
         String transcription=""; 
+	String transcription2=""; 
+        String[] wordlist=new String[1000];
+        long[] durations=new long[1000];
+        long[] startSample=new long[1000];
+        long[] endSample=new long[1000];
+        int counter=0;
+
             while ((result = recognizer.getResult()) != null) {
             	//    //1.Write on screen
             	         //System.out.format("Hypothesis: %s\n", result.getHypothesis());
@@ -128,10 +135,54 @@ public static String transcribe(String fileURL, String language) throws IOExcept
         for (WordResult wordResult: words) {
         	System.out.print(wordResult.getWord()+ " ");
         }
+	//-----This loop word time durations, start time and end time in three arrays-------------------------	    
+	for(WordResult w2 : result.getWords()){
+           wordlist[counter]=w2.getWord().toString(); //duration in miliseconds:
+           durations[counter]=w2.getTimeFrame().length();
+           startSample[counter]=w2.getTimeFrame().getStart();
+           endSample[counter]=w2.getTimeFrame().getEnd();
+           counter+=1;
+        }
+        //-----------------------------------------------------------------
+		    
+		    
+		    
+		    
     	}
     	recognizer.stopRecognition();
     	
+	
+		
+	
+	// This loop removes <sil> from wordlist------------------------------------------------
+    	String[] finalWordlist=new String[1000];
+        int counter2=0;
+	int nextId;
+	long[] finalStartSample=new long[1000];
+	long[] finalEndSample=new long[1000];
+		
+    	for (int i=0; i<=counter-1; i++) {
+      		if (wordlist[i].equals("<sil>")==false) {
+      			finalWordlist[counter2]=wordlist[i];
+      			finalStartSample[counter2]=startSample[i];
+            		finalEndSample[counter2]=endSample[i];
+      			counter2++;   
+    			}
+    	}		
+	//------------------------------------------------------------------------
+    	//***This loop calculates the time gap between consecutive words and decides if there is a punctuation mark between them***		
+    	String finalWord2="";
+    	for (int i=0; i<=counter2-1; i++) {
+    		if  ((finalStartSample[i+1]-finalEndSample[i])<200)  finalWord2=finalWordlist[i]+"";
+            if ((finalStartSample[i+1]-finalEndSample[i])>=200&&(finalStartSample[i+1]-finalEndSample[i])<430)  finalWord2=finalWordlist[i]+",";
+            if ((finalStartSample[i+1]-finalEndSample[i])>=430)  finalWord2=finalWordlist[i]+".";
+            transcription2+=finalWord2+" ";
+            }
+	//******************************************************
+	
+	
         System.out.println(transcription);      
+        System.out.println(transcription2);      
     	
     	   	  
         //String transcription = "This is a test transcription";
@@ -140,7 +191,7 @@ public static String transcribe(String fileURL, String language) throws IOExcept
          //FileOutputStream f = new FileOutputStream("transcription.txt");
          //System.setOut(new PrintStream(f));         
        //  System.out.println(transcription);
-         return transcription;
+         return transcription2;
 
 	}
 
