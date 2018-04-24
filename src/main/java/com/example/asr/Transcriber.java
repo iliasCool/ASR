@@ -126,7 +126,7 @@ public static String transcribe(String fileURL, String language) throws IOExcept
        	//       System.out.println(("\n"+result.getHypothesis()));      
         System.out.println(result.getHypothesis());      
         //transcription += "\n"+result.getHypothesis();
-        transcription += " "+result.getHypothesis();
+        transcription += " "+result.getHypothesis()+".";
         
         
         
