@@ -191,7 +191,7 @@ public static String transcribe(String fileURL, String language) throws IOExcept
          //FileOutputStream f = new FileOutputStream("transcription.txt");
          //System.setOut(new PrintStream(f));         
        //  System.out.println(transcription);
-         return transcription2;
+         return transcription;
 
 	}
 
