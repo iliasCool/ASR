@@ -79,7 +79,7 @@
     	<artifactId>sample</artifactId>
 	    <version>1.0</version>
 	    <scope>system</scope>
-	    <systemPath>jave-1.0.2.jar</systemPath>
+	    <systemPath>${master_project}/jave-1.0.2.jar</systemPath>
     </dependency>
   </dependencies>
   <build>
