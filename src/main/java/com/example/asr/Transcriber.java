@@ -34,8 +34,8 @@ public static String transcribe(String fileURL, String language) throws IOExcept
 	//RawDataStore.storeFile("test.wav","test.wav");
 
 	// 1.Download audio file to current workspace
-    RawDataStore.retrieveFile(fileURL,"new_audio.wav");
-    FileEncoder.fileEncode("new_audio.wav","new_audio2.wav");
+    RawDataStore.retrieveFile(fileURL,"new_audio2.wav");
+   // FileEncoder.fileEncode("new_audio.wav","new_audio2.wav");
 	// 2. Load ASR configuration 
 	Configuration configuration = new Configuration();
 	
