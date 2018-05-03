@@ -34,8 +34,12 @@ public static String transcribe(String fileURL, String language) throws IOExcept
 	//RawDataStore.storeFile("test.wav","test.wav");
 
 	// 1.Download audio file to current workspace
-    RawDataStore.retrieveFile(fileURL,"new_audio2.wav");
-   // FileEncoder.fileEncode("new_audio.wav","new_audio2.wav");
+	String fileName = fileURL.substring(fileURL.lastIndexOf('=')+1, fileURL.length());
+	//otan trexoume me to neo url na xrisimopoiisw:    String fileName = fileURL.substring(fileURL.lastIndexOf('=')+1, fileURL.length());
+    RawDataStore.retrieveFile(fileURL,fileName);
+ //   RawDataStore.retrieveFile(fileURL,"new_audio2.wav");
+       FileEncoder.fileEncode(fileName,"target.wav");
+
 	// 2. Load ASR configuration 
 	Configuration configuration = new Configuration();
 	
@@ -91,7 +95,7 @@ public static String transcribe(String fileURL, String language) throws IOExcept
         
         
         StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
-    	InputStream stream = new FileInputStream(new File("new_audio2.wav"));
+    	InputStream stream = new FileInputStream(new File("target.wav"));
 
 //  	   InputStream stream = new FileInputStream(new File("spanish16KHz2.wav"));
 	  // InputStream stream = new FileInputStream(new File("el-0128_16kHz.wav"));
