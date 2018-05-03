@@ -24,7 +24,7 @@ public class Test {
 			url="http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=greek_rec.wav";
 			break;
 	    case "es":
-			language="es";
+			language="es-ES";
 			url="http://object-store-app.eu-gb.mybluemix.net/objectStorage?file=spanish_rec.wav";
 			break;
 	    case "it":

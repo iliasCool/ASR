@@ -25,6 +25,11 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+    <repository>
+        <id>project-common</id>
+        <name>Project Common</name>
+        <url>https://github.com/iliascool/mvn-ASR/raw/master/</url>
+    </repository>
     </repositories>
     
   <dependencies>
@@ -75,11 +80,9 @@
     	<version>2.8.2</version>
     </dependency>
     <dependency>
-    	<groupId>com.sample</groupId>
-    	<artifactId>sample</artifactId>
-	    <version>1.0</version>
-	    <scope>system</scope>
-	    <systemPath>${project.basedir}/src/lib/jave-1.0.2.jar</systemPath>	
+        <groupId>jave</groupId>
+        <artifactId>jave</artifactId>
+        <version>1.0.2</version>
     </dependency>
   </dependencies>
   <build>
