@@ -38,7 +38,8 @@ public static String transcribe(String fileURL, String language) throws IOExcept
 	//otan trexoume me to neo url na xrisimopoiisw:    String fileName = fileURL.substring(fileURL.lastIndexOf('=')+1, fileURL.length());
 //    	String fileName = "newAudio"+fileNameExt;
 //	RawDataStore.retrieveFile(fileURL,fileName);
-	RawDataStore.retrieveFile(fileURL,"target.wav");
+	String fileName = "newAudio.wav";
+	RawDataStore.retrieveFile(fileURL,fileName);
         FileEncoder.fileEncode(fileName,"target.wav");
 
 	// 2. Load ASR configuration 
