@@ -39,8 +39,8 @@ public static String transcribe(String fileURL, String language) throws IOExcept
 //    	String fileName = "newAudio"+fileNameExt;
 //	RawDataStore.retrieveFile(fileURL,fileName);
 	String fileName = "newAudio.wav";
-	RawDataStore.retrieveFile(fileURL,fileName);
-        FileEncoder.fileEncode(fileName,"target.wav");
+	RawDataStore.retrieveFile(fileURL,"target.wav");
+//        FileEncoder.fileEncode(fileName,"target.wav");
 
 	// 2. Load ASR configuration 
 	Configuration configuration = new Configuration();
