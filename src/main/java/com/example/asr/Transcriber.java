@@ -33,14 +33,13 @@ public static String transcribe(String fileURL, String language) throws IOExcept
 	// this is used to upload a file from workspace to Raw data Store 
 	//RawDataStore.storeFile("test.wav","test.wav");
 
-//	// 1.Download audio file to current workspace
-//	String fileNameExt = fileURL.substring(fileURL.lastIndexOf('.'), fileURL.length());
-//	//otan trexoume me to neo url na xrisimopoiisw:    String fileName = fileURL.substring(fileURL.lastIndexOf('=')+1, fileURL.length());
-//    	String fileName = "newAudio"+fileNameExt;
-//	RawDataStore.retrieveFile(fileURL,fileName);
-	RawDataStore.retrieveFile(fileURL,"target.wav");
- //   RawDataStore.retrieveFile(fileURL,"new_audio2.wav");
-//       FileEncoder.fileEncode(fileName,"target.wav");
+	// 1.Download audio file to current workspace
+	String fileNameExt = fileURL.substring(fileURL.lastIndexOf('.'), fileURL.length());
+	//otan trexoume me to neo url na xrisimopoiisw:    String fileName = fileURL.substring(fileURL.lastIndexOf('=')+1, fileURL.length());
+    	String fileName = "newAudio"+fileNameExt;
+	RawDataStore.retrieveFile(fileURL,fileName);
+//	RawDataStore.retrieveFile(fileURL,"target.wav");
+        FileEncoder.fileEncode(fileName,"target.wav");
 
 	// 2. Load ASR configuration 
 	Configuration configuration = new Configuration();
